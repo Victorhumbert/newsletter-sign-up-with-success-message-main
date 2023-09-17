@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <link rel="stylesheet" href="./assets/css/style.css">
 
@@ -15,10 +14,11 @@
     .attribution {
       font-size: 11px;
       text-align: center;
+      color: #fff;
     }
 
     .attribution a {
-      color: hsl(228, 45%, 44%);
+      color: hsl(4, 100%, 67%);
     }
   </style>
 </head>
@@ -26,10 +26,9 @@
 <body>
 
   <!-- Sign-up form start -->
-  <main>
-    <section>
+  <main class="ativo">
+    <section class="content-container">
       <h1>Stay updated!</h1>
-
       <h2>Join 60,000+ product managers receiving monthly updates on:</h2>
       <ul>
         <li>Product discovery and building what matters</li>
@@ -39,23 +38,24 @@
 
       <form>
         <div>
-          <label for="email">Email address</label>
-          <input type="email" name="email" id="email" placeholder="email@company.com">
+          <label for="email">Email address<span>Valid email required</span></label>
+
+          <input type="email" name="email" id="email" placeholder="email@company.com" required>
         </div>
         <button class="send-btn">Subscribe to monthly newsletter</button>
       </form>
     </section>
-    <div>
+    <div class="img-container">
       <img src="./assets/images/illustration-sign-up-desktop.svg" alt="Imagem ilustrativa de grafico">
     </div>
   </main>
   <!-- Sign-up form end -->
 
   <!-- Success message start -->
-  <section class="success-msg">
+  <section class="success-msg content-container">
     <h1>Thanks for subscribing!</h1>
 
-    <p>A confirmation email has been sent to ash@loremcompany.com.
+    <p>A confirmation email has been sent to <b class="email-confirm">ash@loremcompany.com</b>.
       Please open it and click the button inside to confirm your subscription.</p>
 
     <button class="dimiss-btn">Dismiss message</button>
@@ -66,6 +66,8 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
     Coded by <a href="https://www.linkedin.com/in/victor-pagliuso-232458252/">Victor H. Pagliuso</a>.
   </div>
+
+  <script type="module" src="./assets/script/script.js"></script>
 </body>
 
 </html>
