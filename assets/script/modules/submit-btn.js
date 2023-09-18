@@ -10,12 +10,14 @@ function submit(event) {
   event.preventDefault();
   if (
     formInput.value &&
-    formInput.value.includes("@", ".com") &&
-    formInput.value.includes(".com")
+    formInput.value.includes("@") &&
+    formInput.value.includes(".")
   ) {
     document.querySelector(".email-confirm").innerText = formInput.value;
     main.classList.remove("ativo");
-    successMsg.classList.add("ativo");
+    main.addEventListener("animationend", () =>
+      successMsg.classList.add("ativo")
+    );
   } else {
     form.classList.add("erro");
   }
@@ -23,3 +25,6 @@ function submit(event) {
 
 btn.addEventListener("click", submit);
 
+document.querySelector(".dimiss-btn").addEventListener("click", () => {
+  window.location.reload();
+});

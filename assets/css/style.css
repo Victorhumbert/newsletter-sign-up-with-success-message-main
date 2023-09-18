@@ -6,7 +6,11 @@
   box-sizing: border-box;
   border: none;
   outline: none;
+}
+img {
   object-fit: cover;
+  display: block;
+  margin: 30px;
 }
 
 body {
@@ -14,19 +18,52 @@ body {
   height: 100vh;
   display: grid;
   place-content: center;
+  overflow-x: hidden;
 }
 
 main {
-  display: none;
+  animation: anima-out 1s forwards;
+}
+
+@keyframes anima-out {
+  from {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0 60px;
+    gap: 30px;
+    background: #fff;
+    border-radius: 30px;
+    align-items: center;
+    opacity: 1;
+    transform: scale3d(100%, 100%, 100%);
+  }
+  to {
+    transform: scale3d(0, 0, 0);
+    opacity: 0;
+    display: none;
+  }
 }
 
 main.ativo {
   display: flex;
+  flex-wrap: nowrap;
   margin: 0 60px;
   gap: 30px;
   background: #fff;
   border-radius: 30px;
   align-items: center;
+  animation: anima-left 0.3s;
+}
+
+@keyframes anima-left {
+  from {
+    opacity: 0;
+    transform: translate3d(50%, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 .content-container,
@@ -134,6 +171,7 @@ form input:focus {
   justify-items: center;
   width: 500px;
   padding: 60px;
+  animation: anima-left 2s;
 }
 .success-msg h1::before {
   display: block;
