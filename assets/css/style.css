@@ -42,6 +42,7 @@ main.ativo {
   border-radius: 30px;
   align-items: center;
   animation: anima-left 0.3s forwards;
+  box-shadow: 0 10px 20px 0 hsla(234, 50%, 10%, .5);
 }
 
 main .container {
@@ -114,7 +115,7 @@ form input {
 .send-btn {
   margin-top: 20px;
   width: 100%;
-  background: hsl(235, 18%, 26%);
+  background: hsl(235, 20%, 20%);
   color: hsl(0, 0%, 100%);
   font-family: "Roboto", sans-serif;
   font-weight: 700;
