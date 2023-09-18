@@ -7,10 +7,18 @@
   border: none;
   outline: none;
 }
+
+.img-container {
+  height: 100%;
+  border-radius: 30px;
+}
+
 img {
+  width: 100%;
+  height: 100%;
+  display: grid;
   object-fit: cover;
-  display: block;
-  margin: 30px;
+  border-radius: 30px;
 }
 
 body {
@@ -25,59 +33,22 @@ main {
   animation: anima-out 1s forwards;
 }
 
-@keyframes anima-out {
-  from {
-    display: flex;
-    flex-wrap: nowrap;
-    margin: 0 60px;
-    gap: 30px;
-    background: #fff;
-    border-radius: 30px;
-    align-items: center;
-    opacity: 1;
-    transform: scale3d(100%, 100%, 100%);
-  }
-  to {
-    transform: scale3d(0, 0, 0);
-    opacity: 0;
-    display: none;
-  }
-}
-
 main.ativo {
   display: flex;
-  flex-wrap: nowrap;
-  margin: 0 60px;
+  margin: 20px;
+  padding: 30px;
   gap: 30px;
   background: #fff;
   border-radius: 30px;
   align-items: center;
-  animation: anima-left 0.3s;
+  animation: anima-left 0.3s forwards;
 }
 
-@keyframes anima-left {
-  from {
-    opacity: 0;
-    transform: translate3d(50%, 0, 0);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-.content-container,
-.img-container {
-  flex: 1;
-  background: #fff;
-  padding: 30px;
-  border-radius: 30px;
-}
-main .content-container {
+main .container {
   margin-left: 30px;
 }
 
-.content-container h1 {
+.container h1 {
   color: hsl(234, 29%, 20%);
   font-size: 3.5rem;
   font-family: "Roboto", sans-serif;
@@ -85,7 +56,7 @@ main .content-container {
   margin-bottom: 20px;
 }
 
-.content-container h2 {
+.container h2 {
   color: hsl(235, 18%, 26%);
   font-family: "Roboto", sans-serif;
   font-weight: 400;
@@ -168,10 +139,11 @@ form input:focus {
 
 .success-msg.ativo {
   display: grid;
-  justify-items: center;
-  width: 500px;
+  max-width: 500px;
   padding: 60px;
-  animation: anima-left 2s;
+  border-radius: 30px;
+  background: #fff;
+  animation: anima-left 1s forwards;
 }
 .success-msg h1::before {
   display: block;
@@ -184,6 +156,7 @@ form input:focus {
   font-weight: 400;
   margin-bottom: 30px;
   line-height: 1.5;
+  max-width: 100%;
 }
 
 .dimiss-btn {
@@ -213,4 +186,101 @@ form.erro input {
 
 form.erro label span {
   display: block;
+}
+
+@media (max-width: 800px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 500px) {
+  main {
+    animation: none;
+    animation: anima-right-out 1s forwards;
+  }
+  main.ativo {
+    display: grid;
+    padding: 0;
+    margin: 0;
+    margin-right: 0;
+    border-radius: 0;
+  }
+  main .container {
+    margin: 20px;
+  }
+  .info {
+    order: 1;
+  }
+
+  .success-msg.ativo {
+    display: grid;
+    height: 100vh;
+    padding: 20px;
+    border-radius: 0;
+    animation: anima-left 1s forwards;
+  }
+  .success-msg.ativo div {
+    display: grid;
+    align-content: center;
+  }
+  .dismiss-btn {
+    display: grid;
+    align-self: end;
+    width: 100%;
+    background: hsl(235, 18%, 26%);
+    color: hsl(0, 0%, 100%);
+    font-size: 0.875rem;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    padding: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+}
+@keyframes anima-left {
+  from {
+    opacity: 0;
+    transform: translate3d(50%, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes anima-right-out {
+  from {
+    display: grid;
+    background: #fff;
+    padding: 0;
+    margin: 0;
+    margin-right: 0;
+    border-radius: 0;
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(-50%, 0, 0);
+    display: none;
+  }
+}
+@keyframes anima-out {
+  from {
+    display: flex;
+    gap: 30px;
+    background: #fff;
+    border-radius: 30px;
+    align-items: center;
+    opacity: 1;
+  }
+  to {
+    transform: scale(0);
+    opacity: 0;
+    display: none;
+  }
 }

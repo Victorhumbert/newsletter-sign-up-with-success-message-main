@@ -25,6 +25,6 @@ function submit(event) {
 
 btn.addEventListener("click", submit);
 
-document.querySelector(".dimiss-btn").addEventListener("click", () => {
+document.querySelector(".dismiss-btn").addEventListener("click", () => {
   window.location.reload();
 });
